@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adios
+  labels:
+    app: adios
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: adios
+  template:
+    metadata:
+      labels:
+        app: adios
+    spec:
+      volumes:
+      - name: shared-data
+        emptyDir: {}
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: shared-data
+          mountPath: /usr/share/nginx/html
+      - name: content
+        image: alpine
+        volumeMounts:
+        - name: shared-data
+          mountPath: /pod-data
+        command: ["/bin/sh"]
+        args: ["-c", "echo Adios Openwebinars! > /pod-data/index.html && tail -f /dev/null"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adios
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: adios

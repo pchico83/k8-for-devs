@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rules
+spec:
+  rules:
+  - host: hola.openwebinars.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hola
+          servicePort: 80
+  - host: adios.openwebinars.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: adios
+          servicePort: 80
