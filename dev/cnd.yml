@@ -1,0 +1,11 @@
+name: cnd-vote
+swap:
+  deployment:
+    file: ./manifests/vote-deployment.yaml
+    container: vote
+    image: voting:demo
+  service:
+    file: /manifests/vote-service.yaml
+mount:
+  source: vote
+  target: /app
