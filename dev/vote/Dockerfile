@@ -15,4 +15,4 @@ ADD . /app
 EXPOSE 80
 
 # Define our command to be run when launching the container
-CMD ["python", "app.py]
+CMD ["python", "app.py"]

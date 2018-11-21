@@ -3,7 +3,7 @@ swap:
   deployment:
     file: ./manifests/vote-deployment.yaml
     container: vote
-    image: voting:demo
+    image: pchico83/vote
   service:
     file: /manifests/vote-service.yaml
 mount:

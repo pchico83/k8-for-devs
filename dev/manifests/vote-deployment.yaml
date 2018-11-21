@@ -11,5 +11,4 @@ spec:
     spec:
       containers:
       - image: pchico83/vote
-        imagePullPolicy: IfNotPresent
         name: vote

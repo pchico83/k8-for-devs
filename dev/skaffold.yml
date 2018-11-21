@@ -1,15 +1,15 @@
-apiVersion: skaffold/v1alpha4
+apiVersion: skaffold/v1alpha5
 kind: Config
 build:
-  tagPolicy:
-    sha256: {}
-  local:
-    push: true
   artifacts:
   - image: pchico83/vote
     context: vote
     docker:
       dockerfile: Dockerfile
+  tagPolicy:
+    sha256: {}
+  local:
+    push: true
 deploy:
   kubectl:
     manifests:

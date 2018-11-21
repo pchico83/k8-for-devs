@@ -20,4 +20,4 @@ spec:
     - name: shared-data
       mountPath: /pod-data
     command: ["/bin/sh"]
-    args: ["-c", "echo Hola Openwebinars! > /pod-data/index.html"]
+    args: ["-c", "echo Hola Openwebinars! > /pod-data/index.html && tail -f /dev/null"]
