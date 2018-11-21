@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: pod-volumes
 spec:
-  restartPolicy: Never
   volumes:
   - name: shared-data
     emptyDir: {}
@@ -21,4 +20,4 @@ spec:
     - name: shared-data
       mountPath: /pod-data
     command: ["/bin/sh"]
-    args: ["-c", "echo Hola Openwebinars! > /pod-data/index.html && tail -f /dev/null"]
+    args: ["-c", "echo Hola Openwebinars! > /pod-data/index.html"]
