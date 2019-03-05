@@ -1,0 +1,8 @@
+swap:
+  deployment:
+    name: vote
+    command: ["python", "app.py"]
+mount:
+  target: /app
+forward:
+  - 8080:80
