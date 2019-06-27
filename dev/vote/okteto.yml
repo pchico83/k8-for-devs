@@ -1,8 +1,5 @@
-swap:
-  deployment:
-    name: vote
-    command: ["python", "app.py"]
-mount:
-  target: /app
+name: vote
+workdir: /app
+command: ["python", "app.py"]
 forward:
   - 8080:80
