@@ -9,4 +9,3 @@ spec:
     targetPort: 5432
   selector:
     app: db
-  

@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: vote
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
-  - port: 80
+  - name: "vote-service"
+    port: 5000
+    targetPort: 80
+    nodePort: 31000
   selector:
     app: vote
-  
